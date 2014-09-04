@@ -8,6 +8,10 @@ for i = 1:70
     x = [x [rand * 3; rand * 5]];
 end
 
+for i = 1:60
+    x = [x [rand * 3+2; rand * 5+2]];
+end
+
 [mu, r, ite] = kmean(x,3,50);
 
 figure
