@@ -1,8 +1,5 @@
-function result = exp_objective( theta_param, x, t, beta, theta ) 
-    [input_length, sample_size] = size(x);
+function result = exp_objective(theta, x, t, beta)
     [target_length, sample_size] = size(t);
-    
-    theta = theta_param;
     
     % Covariance Matrix
     cm = zeros(sample_size);
@@ -13,8 +10,8 @@ function result = exp_objective( theta_param, x, t, beta, theta )
         end
     end
     
-    result = -0.5 * log(det(cm)) - 0.5 * t * inv(cm) * t';
-    
+    % Maximize the log likelihood
+    result = 0.5 * log(det(cm)) + 0.5 * t * (cm \ t');
     return;
 end
 
