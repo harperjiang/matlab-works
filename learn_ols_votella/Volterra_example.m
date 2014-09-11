@@ -1,12 +1,7 @@
-
-
 %close all
-clear
 %clc
 
 disp('2nd order Volterra model')
-load ('pcr.mat');
-load ('local_testset.mat');
 
 
 %X=train_input;
@@ -17,8 +12,8 @@ Y=t';
 [rowX,colX] = size(X);
 [rowY,colY] = size(Y);
 
-YXcorr=corr(Y,X);
-Xcorr=corr(X);
+%YXcorr=corr(Y,X);
+%Xcorr=corr(X);
 
 count=0;
 %data2=[];
@@ -31,7 +26,7 @@ for i=1:colX
     end
 end
 
-method=0;
+method=1;
 
 if method==0
     data=[X, data2];
